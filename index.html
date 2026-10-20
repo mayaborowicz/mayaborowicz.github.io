@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project Name</title>
-  <meta name="description" content="A one-sentence description of your project.">
+  <title>Maya Borowicz – Projects</title>
+  <meta name="description" content="A portfolio of projects by Your Name.">
   <style>
     :root {
       --bg: #f6f7f4;
@@ -14,8 +14,7 @@
       --line: #d9dfda;
       --accent: #0f6b5c;
       --accent-text: #ffffff;
-      --code-bg: #14211d;
-      --code-text: #d7efe6;
+      --shot-bg: #e4e9e5;
       color-scheme: light;
     }
     @media (prefers-color-scheme: dark) {
@@ -27,8 +26,7 @@
         --line: #2a3a34;
         --accent: #5fd0b5;
         --accent-text: #08201a;
-        --code-bg: #0a100e;
-        --code-text: #d7efe6;
+        --shot-bg: #22302a;
         color-scheme: dark;
       }
     }
@@ -47,7 +45,7 @@
       outline-offset: 3px;
     }
 
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
     header.site { padding: 20px 0; border-bottom: 1px solid var(--line); }
     header.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
@@ -63,42 +61,58 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
     }
-    .hero p { margin: 0 0 28px; max-width: 34em; font-size: 1.15rem; color: var(--muted); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero p { margin: 0; max-width: 34em; font-size: 1.15rem; color: var(--muted); }
+
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    section h2 { margin: 0 0 24px; font-size: 1.4rem; letter-spacing: -0.01em; }
+
+    .projects { display: grid; gap: 40px; }
+    .project { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+    .project:nth-child(even) .shot { order: 2; }
+
+    .shot {
+      aspect-ratio: 16 / 10;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--shot-bg);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .project h3 { margin: 0 0 8px; font-size: 1.3rem; }
+    .project p { margin: 0 0 12px; color: var(--muted); }
+    .tags { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags li {
+      padding: 2px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      font-size: .85rem;
+    }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      padding: 11px 20px;
+      padding: 8px 16px;
       border-radius: 6px;
       border: 1px solid var(--accent);
       font-weight: 600;
+      font-size: .95rem;
       text-decoration: none;
     }
     .btn.primary { background: var(--accent); color: var(--accent-text); }
     .btn.secondary { color: var(--accent); }
 
-    section { padding: 36px 0; border-top: 1px solid var(--line); }
-    section h2 { margin: 0 0 16px; font-size: 1.4rem; letter-spacing: -0.01em; }
-
-    pre {
-      margin: 0;
-      padding: 18px 20px;
-      overflow-x: auto;
-      border-radius: 6px;
-      background: var(--code-bg);
-      color: var(--code-text);
-      font: 0.92rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    }
-
-    .features { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
-    .features li { padding-left: 16px; border-left: 3px solid var(--accent); }
-    .features strong { display: block; }
-    .features span { color: var(--muted); }
-
     footer { padding: 32px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 
-    @media (max-width: 520px) {
+    @media (max-width: 680px) {
       header.site .wrap { flex-direction: column; align-items: flex-start; }
       .hero { padding-top: 48px; }
+      .project { grid-template-columns: 1fr; gap: 16px; }
+      .project:nth-child(even) .shot { order: 0; }
     }
   </style>
 </head>
@@ -106,11 +120,11 @@
 
   <header class="site">
     <div class="wrap">
-      <strong>Project Name</strong>
+      <strong>Maya Borowicz</strong>
       <nav aria-label="Main">
-        <a href="#install">Install</a>
-        <a href="#features">Features</a>
-        <a href="https://github.com/your-username/your-repo">GitHub</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/mayaborowicz">GitHub</a>
       </nav>
     </div>
   </header>
@@ -119,36 +133,65 @@
     <div class="wrap">
 
       <div class="hero">
-        <h1>Project Name</h1>
-        <p>Replace this with one or two sentences that say what your project does and who it's for.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/your-username/your-repo">View on GitHub</a>
-          <a class="btn secondary" href="#install">Get started</a>
-        </div>
+        <h1>Maya Borowicz</h1>
+        <p>Master's Student in Electrical and Computer Engineering. Interested in electromagnetics, physical design, and device physics.</p>
       </div>
 
-      <section id="install">
-        <h2>Install</h2>
-        <pre><code>git clone https://github.com/your-username/your-repo.git
-cd your-repo
-# add your setup commands here</code></pre>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+
+          <!-- Project 1 -->
+          <article class="project">
+            <div class="shot">
+              <img src="images/project-one.png" alt="Screenshot of Project One" onerror="this.remove()">
+              <span>Screenshot: images/project-one.png</span>
+            </div>
+            <div>
+              <h3>Project One</h3>
+              <p>A short description of what this project does and the problem it solves.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLite</li>
+              </ul>
+              <div class="links">
+                <a class="btn primary" href="https://your-live-demo-link.example">Live demo</a>
+                <a class="btn secondary" href="https://github.com/your-username/project-one">Source code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project">
+            <div class="shot">
+              <img src="images/project-two.png" alt="Screenshot of Project Two" onerror="this.remove()">
+              <span>Screenshot: images/project-two.png</span>
+            </div>
+            <div>
+              <h3>Project Two</h3>
+              <p>A short description of what this project does and the problem it solves.</p>
+              <ul class="tags" aria-label="Technologies">
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+              <div class="links">
+                <a class="btn primary" href="https://your-live-demo-link.example">Live demo</a>
+                <a class="btn secondary" href="https://github.com/your-username/project-two">Source code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </section>
 
-      <section id="features">
-        <h2>What it does</h2>
-        <ul class="features">
-          <li><strong>Feature one</strong><span>A short description of what this feature lets people do.</span></li>
-          <li><strong>Feature two</strong><span>A short description of what this feature lets people do.</span></li>
-          <li><strong>Feature three</strong><span>A short description of what this feature lets people do.</span></li>
-        </ul>
-      </section>
-
-      <section id="links">
-        <h2>Links</h2>
+      <section id="contact">
+        <h2>Contact</h2>
         <p>
-          <a href="https://github.com/your-username/your-repo/issues">Report an issue</a> ·
-          <a href="https://github.com/your-username/your-repo/blob/main/README.md">Read the README</a> ·
-          <a href="https://github.com/your-username/your-repo/blob/main/LICENSE">License</a>
+          <a href="mailto:you@example.com">you@example.com</a> ·
+          <a href="https://github.com/your-username">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/your-username">LinkedIn</a>
         </p>
       </section>
 
@@ -156,7 +199,7 @@ cd your-repo
   </main>
 
   <footer>
-    <div class="wrap">Made by <a href="https://github.com/your-username">your-username</a>.</div>
+    <div class="wrap">&copy; Your Name</div>
   </footer>
 
 </body>
